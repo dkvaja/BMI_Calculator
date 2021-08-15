@@ -24,10 +24,15 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--primary-font);
+  outline-style: none;
 }
 
 /* utility classes to reduce code */
 
+.flexColumnCenter {
+  display: flex;
+  align-items: center;
+}
 .flexRowCenter {
   display: flex;
   justify-content: center;
@@ -37,36 +42,127 @@
   justify-content: center;
   align-items: center;
 }
+.flexColumnHCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.bold {
+  font-weight: bold;
+}
 
 /* rest styling */
-
-/* navbar styling */
-
-nav {
-  width: 100%;
-  padding: 0.5rem;
-}
-nav img {
-  width: 4rem;
-}
-nav h2 {
-  margin-left: 0.5rem;
-  font-weight: bold;
-  font-size: 2rem;
-}
 
 /* section styling */
 
 #main_box {
-  background-color: red;
-  height: 80vh;
+  background: url("images/bgpic.jpg") no-repeat center center/cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active_box {
+  border-radius: 0.5rem;
+  width: 26rem;
+  max-width: 85%;
+  height: 100%;
+}
+
+.logo {
+  margin-bottom: 1rem;
+}
+.logo img {
+  width: 3.5rem;
+}
+.logo h3 {
+  font-size: 1.8em;
+  margin-left: 0.5rem;
+}
+
+/* form styling */
+
+.form_box {
+  background-color: rgba(235, 235, 235, 0.678);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+input[type="number"] {
+  border: 2px solid green;
+  padding: 0.4rem;
+  margin-left: 0.5rem;
+  border-radius: 0.2rem;
+}
+input[type="submit"] {
+  background-color: green;
+  color: #fff;
+  width: 100%;
+  padding: 0.7rem;
+  border-style: none;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
+input[type="submit"]:hover {
+  background-color: white;
+  color: green;
+}
+input[type="submit"]:active {
+  transform: scale(0.98);
+}
+input[type="radio"]:hover {
+  cursor: pointer;
+}
+.form_box > form,
+input {
+  font-size: 1.2rem;
+}
+
+.form_items {
+  margin: 1rem 0rem;
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bmi_num {
+  font-size: 1.2rem;
+}
+
+/* result div styling */
+#result {
+  border-radius: 0.5rem;
+  background-color: #fff;
+  margin-top: 2rem;
+  padding: 1rem;
   width: 100%;
 }
 
 /* footer styling */
-
 footer {
-  background-color: blue;
+  font-family: var(--secondary-font);
+  text-align: center;
   width: 100%;
-  height: 72px;
+  font-size: 1.2rem;
+}
+#result_text {
+  text-align: center;
+}
+/* For responsiveness */
+
+@media (max-width: 800px) {
+  .form_box > form,
+  input {
+    font-size: 1rem;
+  }
+  footer {
+    font-size: 1rem;
+  }
 }

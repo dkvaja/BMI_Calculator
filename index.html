@@ -10,16 +10,53 @@
     <title>BMI Calculator</title>
   </head>
   <body>
-    <nav class="flexAllCenter">
-      <!-- this is our navbar -->
-      <img src="images/logo.png" alt="BMI Logo">
-      <h2>BMI Calculator</h2>
-    </nav>
     <section id="main_box">
       <!-- this is our main container -->
-    </section> 
-    <footer>
-      <!-- this is going to be our footer -->
-    </footer>
+      <div class="active_box flexColumnHCenter">
+        <div class="logo flexAllCenter">
+          <img src="images/logo.png" alt="BMI Logo" />
+          <h3>BMI Calculator</h3>
+        </div>
+        <div class="form_box flexAllCenter">
+          <form
+            action="#"
+            onsubmit="calculateBmi(event)"
+            method="POST"
+            class="flexColumnHCenter"
+          >
+            <div class="form_items">
+              <label for="height">Height(in cm):</label>
+              <input
+                type="number"
+                name="height"
+                id="height"
+                min="0"
+                required
+                placeholder="Height(in cm)"
+              />
+            </div>
+            <div class="form_items">
+              <label for="weight">Weight(in kg):</label>
+              <input
+                type="number"
+                name="weight"
+                id="weight"
+                min="0"
+                required
+                placeholder="Weight(in kg)"
+              />
+            </div>
+            <div class="form_items">
+              <input type="submit" value="Calculate" class="bold" />
+            </div>
+          </form>
+        </div>
+        <div id="result" class="flexAllCenter bold">
+          <span id="bmi_num"></span>
+          <p id="result_Text">Enter the above details for BMI 😃</p>
+        </div>
+      </div>
+      <footer class="bold">&copy; Developed By : dk_vaja & 🐰</footer>
+    </section>
   </body>
 </html>

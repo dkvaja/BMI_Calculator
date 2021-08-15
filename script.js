@@ -1,17 +1,32 @@
 // console.log("Hi Rabbit 🐰")
 
-const height = prompt("Enter the height:");
-const hiinm = height / 100;
-const wight = prompt("Enter the wight:");
-
-const bmi = wight / (hiinm * hiinm).toFixed(3);
-
-if (bmi && bmi > 0) {
-    if (bmi < 18.5) console.log('Underweight');
-    else if (bmi >= 18.5 && bmi <= 24.9) console.log('Normal Weight');
-    else if (bmi > 25 && bmi <= 29.9) console.log('Overweight');
-    else if (bmi > 30 && bmi <= 34.9) console.log('Obesity Level I');
-    else if (bmi > 35 && bmi <= 39.9) console.log('Obesity Level II');
-    else if (bmi >= 40) console.log('Obesity Level III');
+const setter = (Text, bmi, colorCode) => {
+    document.getElementById('result').style.backgroundColor = colorCode;
+    document.getElementById('result_Text').innerText = `You are in ${Text}`;
+    document.getElementById('bmi_num').innerHTML = `${bmi} &nbsp;`;
 }
+const calculateBmi = (event) => {
+    event.preventDefault(); //avoid form submission
+
+    const height = document.getElementById('height');
+    const weight = document.getElementById('weight');
+
+    if (height.value == 0 || weight.value == 0) alert('Please Enter valid Values!');
+
+    const heightInMeter = height.value / 100;
+    const BMI = (weight.value / (heightInMeter * heightInMeter)).toFixed(3);
+
+    if (BMI < 18.5) setter('Underweight', BMI, '#01b0f1');
+    else if (BMI >= 18.5 && BMI <= 24.9) setter('Normal Weight', BMI, '#91d14f');
+    else if (BMI > 25 && BMI <= 29.9) setter('Overweight', BMI, '#feff05');
+    else if (BMI > 30 && BMI <= 34.9) setter('Obesity Level I', BMI, "#f99301");
+    else if (BMI > 35 && BMI <= 39.9) setter('Obesity Level II', BMI, '#ff6767');
+    else if (BMI >= 40) setter('Obesity Level III', BMI, 'red');
+
+    // clean up code
+    height.value = weight.value = '';
+}
+
+
+
 
